@@ -7,5 +7,5 @@
  В папке OnlineOrdersManagement находятся исходники WPF приложения.
  Демонстрация работы приложения:
  
- ![demonstration](https://user-images.githubusercontent.com/73136314/232567425-78517fd3-e1bf-4a73-8b8c-2e874945719c.gif)
+![Demonstration](https://user-images.githubusercontent.com/73136314/232568490-dbbd4f7f-ce8b-4bae-862c-91b8f1f1eec8.gif)
 
