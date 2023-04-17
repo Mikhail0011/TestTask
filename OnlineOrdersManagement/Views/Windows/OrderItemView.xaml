@@ -1,0 +1,41 @@
+﻿<Window x:Class="OnlineOrdersManagement.Views.Windows.OrderItemView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:viewmodels="clr-namespace:OnlineOrdersManagement.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=viewmodels:OrderItemViewModel}"
+        mc:Ignorable="d"
+        Title="Заказ" MinHeight="400" MinWidth="500" Height="400" Width="500" WindowStartupLocation="CenterOwner">
+    
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+
+    <StackPanel Margin="10">
+        <Label Content="№ Заказа"/>
+        <TextBox Text="{Binding OrderID}" IsEnabled="{Binding IsAddOrder}" />
+        <Label Content="Дата создания"/>
+        <DatePicker SelectedDate="{Binding OrderDate}"/>
+        <Label Content="Сумма"/>
+        <TextBox Text="{Binding Sum}"/>
+        <Label Content="Статус"/>
+        <ComboBox ItemsSource="{Binding Statuses}" SelectedItem="{Binding Status}"/>
+        <Label Content="Клиент"/>
+        <ComboBox ItemsSource="{Binding Clients}" SelectedItem="{Binding Client}"/>
+        <Label Content="Комментарий"/>
+        <TextBox Text="{Binding Comment}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Сохранить" VerticalAlignment="Center" Margin="10" Padding="2" Command="{Binding SaveCommand}"/>
+            <Button Grid.Column="1" Content="Отмена" VerticalAlignment="Center" Margin="10" Padding="2" Command="{Binding CancelCommand}"/>
+        </Grid>
+    </StackPanel>
+</Window>
